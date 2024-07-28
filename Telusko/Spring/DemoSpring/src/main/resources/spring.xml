@@ -9,7 +9,8 @@
 
 
     <bean id="dev" class="lk.practice.Dev">
-        <property name="age" value="12"/>
+<!--        <property name="age" value="12"/>-->  <!--setter injection -->
+        <constructor-arg value="14"/> <!--constructor injection -->
     </bean>
 
     <bean id="dev1" class="lk.practice.Dev">
@@ -20,3 +21,5 @@
 
 </beans>
 
+<!--in here we have to cinfig every time when we need object like this -->
+<!--it's really hard work without spring boot like this-->

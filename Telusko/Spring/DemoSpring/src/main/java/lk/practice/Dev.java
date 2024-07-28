@@ -8,6 +8,15 @@ public class Dev {
 
     private int age;
 
+    public Dev(){
+        System.out.println("Dev constructor");
+    }
+
+    public Dev(int age){
+        this.age = age;
+        System.out.println("Dev 1 constructor");
+    }
+
     public int getAge() {
         return age;
     }
@@ -16,9 +25,7 @@ public class Dev {
         this.age = age;
     }
 
-    public Dev(){
-        System.out.println("Dev constructor");
-    }
+
 
     public void build(){
 
