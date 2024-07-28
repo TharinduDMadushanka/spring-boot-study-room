@@ -4,7 +4,7 @@ package lk.practice;
 
 public class Dev {
 
-//    private Laptop laptop;
+    private Laptop laptop;
 
     private int age;
 
@@ -30,6 +30,9 @@ public class Dev {
     public void build(){
 
         System.out.println("Working on a project.");
-//        laptop.compile();
+        laptop.compile();
+    }
+
+    public void setLaptop(Laptop laptop) {
     }
 }

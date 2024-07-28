@@ -9,14 +9,15 @@
 
 
     <bean id="dev" class="lk.practice.Dev">
+        <property name="laptop" ref="lap1"/>
 <!--        <property name="age" value="12"/>-->  <!--setter injection -->
-        <constructor-arg value="14"/> <!--constructor injection -->
+<!--       <constructor-arg value="14"/>-->   <!--constructor injection -->
     </bean>
 
     <bean id="dev1" class="lk.practice.Dev">
     </bean>
 
-    <bean id="laptop" class="lk.practice.Laptop">
+    <bean id="lap1" class="lk.practice.Laptop">
     </bean>
 
 </beans>
