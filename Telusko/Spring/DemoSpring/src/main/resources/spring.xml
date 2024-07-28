@@ -9,7 +9,9 @@
 
 
     <bean id="dev" class="lk.practice.Dev">
-        <property name="laptop" ref="lap1"/>
+        <property name="laptop" ref="lap1"/> <!--setter injection -->
+        <constructor-arg ref="lap1"/> <!--constructor injection for laptop reference -->
+
 <!--        <property name="age" value="12"/>-->  <!--setter injection -->
 <!--       <constructor-arg value="14"/>-->   <!--constructor injection -->
     </bean>

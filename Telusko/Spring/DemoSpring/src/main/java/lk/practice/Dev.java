@@ -17,6 +17,11 @@ public class Dev {
         System.out.println("Dev 1 constructor");
     }
 
+    public Dev(Laptop laptop){
+        this.laptop = laptop;
+        System.out.println("Dev laptop constructor");
+    }
+
     public int getAge() {
         return age;
     }
@@ -25,7 +30,13 @@ public class Dev {
         this.age = age;
     }
 
+    public Laptop getLaptop() {
+        return laptop;
+    }
 
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
 
     public void build(){
 
@@ -33,6 +44,5 @@ public class Dev {
         laptop.compile();
     }
 
-    public void setLaptop(Laptop laptop) {
-    }
+
 }
