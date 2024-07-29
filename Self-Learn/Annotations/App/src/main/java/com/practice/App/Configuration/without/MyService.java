@@ -1,4 +1,4 @@
-package com.practice.App.ComponentScan.without;
+package com.practice.App.Configuration.without;
 
 // Service class -> that contains the business logic.
 public class MyService {

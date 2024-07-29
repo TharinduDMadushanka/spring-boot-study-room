@@ -1,4 +1,4 @@
-package com.practice.App.ComponentScan.with;
+package com.practice.App.Configuration.with;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

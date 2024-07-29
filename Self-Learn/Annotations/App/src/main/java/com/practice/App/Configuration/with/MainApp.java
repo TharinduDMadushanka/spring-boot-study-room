@@ -1,4 +1,4 @@
-package com.practice.App.ComponentScan.with;
+package com.practice.App.Configuration.with;
 
 // Main class to bootstrap the application
 import org.springframework.context.ApplicationContext;

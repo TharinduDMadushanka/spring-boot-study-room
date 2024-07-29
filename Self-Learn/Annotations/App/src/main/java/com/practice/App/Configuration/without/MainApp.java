@@ -1,4 +1,4 @@
-package com.practice.App.ComponentScan.without;
+package com.practice.App.Configuration.without;
 
 // Main class to bootstrap the application
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

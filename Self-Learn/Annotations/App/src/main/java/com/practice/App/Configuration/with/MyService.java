@@ -1,4 +1,4 @@
-package com.practice.App.ComponentScan.with;
+package com.practice.App.Configuration.with;
 
 public class MyService {
 
