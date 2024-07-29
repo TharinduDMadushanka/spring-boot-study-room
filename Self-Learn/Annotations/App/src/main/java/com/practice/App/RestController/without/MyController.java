@@ -13,3 +13,15 @@ public class MyController {
         return "Hello World";
     }
 }
+
+/**
+ * With @RestController The class is automatically set up to handle web requests, and all methods return data directly.
+
+ * Without @RestController: You must manually add @ResponseBody to each method, or else the methods will return views
+   (typically JSP or Thymeleaf templates).
+
+ * If you don't use @RestController, you lose the convenience of automatically combining @Controller and @ResponseBody
+
+ * use @Controller on the class and @ResponseBody on each method to achieve the same functionality, resulting in more
+   boilerplate code.
+ */
