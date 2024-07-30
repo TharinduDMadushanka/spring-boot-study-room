@@ -3,9 +3,7 @@ package com.tdm.simpleWebApp.controller;
 import com.tdm.simpleWebApp.model.Products;
 import com.tdm.simpleWebApp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,17 +13,20 @@ public class ProductController {
     @Autowired
     ProductService service;
 
-    @RequestMapping("/product")
+    //@RequestMapping("/product")
+    @GetMapping("/product")
     public List<Products> getProducts(){
         return service.getProducts();
     }
 
-    @RequestMapping("/product/{prodId}")
+    //@RequestMapping("/product/{prodId}")
+    @GetMapping("/product")
     public Products getProductById(@PathVariable int prodId){
         return service.getProductById(prodId);
     }
 
-    @RequestMapping("/product")
+    //@RequestMapping("/product")
+    @PostMapping("/product")
     public void addProduct(Products prod){
         service.addProducts(prod);
     }
@@ -38,4 +39,7 @@ public class ProductController {
 
  *   @RequestMapping("/product/102") -> if we send request like this the error shows
  "Optional int parameter 'prodId' is present but cannot be translated into a null value due to being declared as a primitive type. "
+
+ * @RequestMapping("/product") -> if there more than one request with same name it will be a problem so that we can use specialized
+   requests like GET,PUT,DELETE,POST
  */
