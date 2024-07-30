@@ -1,4 +1,4 @@
-package com.tdm.simpleWebApp;
+package com.tdm.simpleWebApp.model;
 
 import lombok.Data;
 
