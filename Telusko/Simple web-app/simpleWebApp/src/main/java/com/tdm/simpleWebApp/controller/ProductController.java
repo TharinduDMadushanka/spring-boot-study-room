@@ -25,6 +25,11 @@ public class ProductController {
         return service.getProductById(prodId);
     }
 
+    @RequestMapping("/product")
+    public void addProduct(Products prod){
+        service.addProducts(prod);
+    }
+
 }
 
 /**
