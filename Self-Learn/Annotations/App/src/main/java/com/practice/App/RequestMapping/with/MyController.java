@@ -20,3 +20,12 @@ public class MyController {
     }
 
 }
+
+/**
+
+ * @Controller -> Marks the class as a Spring MVC controller.
+
+ * @RequestMapping("/") -> Maps HTTP requests to the home method, which handles requests to the root URL (/).
+   The method adds a message to the model and returns the name of the view (home).
+
+ */
