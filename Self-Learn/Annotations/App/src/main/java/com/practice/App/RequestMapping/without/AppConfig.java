@@ -24,7 +24,7 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     public RequestMappingHandlerMapping requestMappingHandlerMapping() throws NoSuchMethodException {
         RequestMappingHandlerMapping mapping = new RequestMappingHandlerMapping();
-        mapping.registerMapping("/home", myController(), MyController.class.getMethod("home", Model.class));
+        //mapping.registerMapping("/home", myController(), MyController.class.getMethod("home", Model.class));
         return mapping;
     }
 }
