@@ -18,5 +18,12 @@ public class MyController {
         model.addAttribute("greeting", "Hello World!");
         return "home";
     }
-
 }
+
+/**
+
+ * @Controller -> Marks the class as a Spring MVC controller.
+
+ * home method -> Handles GET requests to the root URL (/). It adds a message to the model and returns the name of the view (home).
+
+ */

@@ -6,3 +6,10 @@ public class Service {
         return "Service called.!";
     }
 }
+
+/**
+
+ * @Service -> Marks the class as a Spring service. This annotation is a specialization of @Component, indicating that
+   this class contains business logic.
+
+ */
