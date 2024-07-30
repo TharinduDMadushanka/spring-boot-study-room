@@ -14,5 +14,12 @@ public class MyController {
         model.addAttribute("message", myService.serve());
         return "home"; // Return view name (e.g., home.html)
     }
-
 }
+
+/**
+
+ * This is a regular class without any Spring annotations.
+
+ * It has a method home that handles HTTP requests. The method adds a message to the model and returns the name of the view (home).
+
+ */

@@ -28,3 +28,17 @@ public class AppConfig implements WebMvcConfigurer {
         return mapping;
     }
 }
+
+/**
+
+ * @Configuration -> Indicates that this class contains Spring bean definitions.
+
+ * @EnableWebMvc -> Enables Spring MVC and sets up default configurations.
+
+ * @Bean -> Used to manually declare beans that should be managed by the Spring container
+        * myService(): Declares MyService as a bean.
+        * myController(): Declares MyController as a bean, injecting MyService into it.
+
+ * requestMappingHandlerMapping() -> Manually sets up the request mapping for the home method of the MyController class.
+
+ */
