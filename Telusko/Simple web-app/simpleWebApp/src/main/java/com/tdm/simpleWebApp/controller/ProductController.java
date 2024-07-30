@@ -20,14 +20,14 @@ public class ProductController {
     }
 
     //@RequestMapping("/product/{prodId}")
-    @GetMapping("/product")
+    @GetMapping("/product/{prodId}")
     public Products getProductById(@PathVariable int prodId){
         return service.getProductById(prodId);
     }
 
     //@RequestMapping("/product")
     @PostMapping("/product")
-    public void addProduct(Products prod){
+    public void addProduct(@RequestBody Products prod){
         service.addProducts(prod);
     }
 
@@ -42,4 +42,6 @@ public class ProductController {
 
  * @RequestMapping("/product") -> if there more than one request with same name it will be a problem so that we can use specialized
    requests like GET,PUT,DELETE,POST
+
+ * if we send body from client to the server(post) we should use @RequestBody
  */
