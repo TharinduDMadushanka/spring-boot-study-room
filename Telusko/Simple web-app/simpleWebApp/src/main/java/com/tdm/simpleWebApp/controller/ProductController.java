@@ -19,4 +19,8 @@ public class ProductController {
         return service.getProducts();
     }
 
+    public Products getProductById(int prodId){
+        return service.getProductById(prodId);
+    }
+
 }

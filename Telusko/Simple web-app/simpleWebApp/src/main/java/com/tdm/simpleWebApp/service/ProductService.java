@@ -20,4 +20,9 @@ public class ProductService {
         return products;
     }
 
+    public Products getProductById(int prodId) {
+        return products.stream()
+                .filter(p -> p.getProdId() == prodId)
+                .findFirst().get();
+    }
 }
