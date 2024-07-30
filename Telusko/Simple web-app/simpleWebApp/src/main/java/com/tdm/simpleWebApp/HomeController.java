@@ -12,6 +12,11 @@ public class HomeController {
         return "Hello Welcome";
     }
 
+    @RequestMapping("/about")
+    public String about(){
+        return "Hello About";
+    }
+
 }
 
 /**
