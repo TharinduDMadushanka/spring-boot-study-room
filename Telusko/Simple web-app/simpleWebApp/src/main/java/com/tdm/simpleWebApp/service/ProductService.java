@@ -1,6 +1,8 @@
 package com.tdm.simpleWebApp.service;
 
 import com.tdm.simpleWebApp.model.Products;
+import com.tdm.simpleWebApp.repository.ProductRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +11,9 @@ import java.util.List;
 
 @Service
 public class ProductService {
+
+    @Autowired
+    ProductRepo repo; // instance of ProductRepo interface
 
     List<Products> products = new ArrayList<>(Arrays.asList(
             new Products(101, "Iphone", 50000),
