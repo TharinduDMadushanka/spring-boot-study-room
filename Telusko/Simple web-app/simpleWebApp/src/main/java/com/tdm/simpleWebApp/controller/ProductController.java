@@ -46,8 +46,8 @@ public class ProductController {
 
 /**
  * @RestController ->  simplify the creation of RESTful web services
-        *  combines @Controller and @ResponseBody, which eliminates the need to annotate every request handling method of the
-           controller class with the @ResponseBody annotation
+        * combines @Controller and @ResponseBody, which eliminates the need to annotate every request handling method of the
+          controller class with the @ResponseBody annotation
 
  * @Autowired -> used for automatic dependency injection
 
