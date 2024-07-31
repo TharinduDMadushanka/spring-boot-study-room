@@ -24,16 +24,19 @@ public class ProductService {
 
     public List<Products> getProducts() {
 //        return products;
+        return repo.findAll();
     }
 
     public Products getProductById(int prodId) {
 //        return products.stream()
 //                .filter(p -> p.getProdId() == prodId)
 //                .findFirst().get();
+        return repo.findById(prodId).orElse(null);
     }
 
     public void addProducts(Products prod) {
 //        products.add(prod);
+        repo.save(prod);
     }
 
     public void updateProduct(Products prod) {
@@ -44,6 +47,7 @@ public class ProductService {
 //
 //            products.set(index, prod);
 //        }
+        repo.save(prod);
     }
 
     public void deleteProduct(int prodId) {
@@ -54,5 +58,6 @@ public class ProductService {
 //
 //            products.remove(index);
 //        }
+        repo.deleteById(prodId);
     }
 }
