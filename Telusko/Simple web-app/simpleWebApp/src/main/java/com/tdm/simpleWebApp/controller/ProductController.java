@@ -45,6 +45,12 @@ public class ProductController {
 }
 
 /**
+ * @RestController ->  simplify the creation of RESTful web services
+        *  combines @Controller and @ResponseBody, which eliminates the need to annotate every request handling method of the
+           controller class with the @ResponseBody annotation
+
+ * @Autowired -> used for automatic dependency injection
+
  * {prodId} -> the value came in the request will be mapped in to prodId
  * if we want to match these 2 we should use @PathVariable this annotation
 
