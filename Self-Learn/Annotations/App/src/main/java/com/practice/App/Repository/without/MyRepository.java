@@ -6,3 +6,7 @@ public class MyRepository {
         return "Data fetched from repository without @Repository";
     }
 }
+
+/**
+ * This is a plain Java class without any Spring annotations.
+ */

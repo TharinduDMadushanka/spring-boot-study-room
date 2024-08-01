@@ -21,3 +21,12 @@ public class AppConfig {
         return new MyController(myService());
     }
 }
+
+/**
+
+ * Manually register the repository as a bean.
+
+ * Explanation -> * @Configuration annotation indicates that this class contains one or more @Bean methods.
+                  * @Bean methods are used to register beans in the Spring application context.
+
+ */

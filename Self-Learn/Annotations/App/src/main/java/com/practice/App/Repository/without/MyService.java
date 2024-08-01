@@ -17,3 +17,11 @@ public class MyService {
         return myRepository.fetch();
     }
 }
+
+/**
+
+ * The service class remains the same as before with @Repository
+
+ * Explanation -> The service class uses the repository to fetch data. The repository will be manually registered as a bean
+                  in the configuration class.
+ */

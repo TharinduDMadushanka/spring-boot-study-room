@@ -22,3 +22,11 @@ public class MyController {
         return myService.serve();
     }
 }
+
+/**
+
+ * The controller class remains the same as before with @Repository
+
+ * Explanation -> The controller uses the service to get data.
+
+ */

@@ -21,3 +21,8 @@ public class MyApp {
         SpringApplication.run(MyApp.class, args);
     }
 }
+
+/**
+ * AnnotationConfigApplicationContext -> manually register the configuration class and refresh the context before running
+                                         the Spring Boot application.
+ */
