@@ -19,3 +19,8 @@ public class MyController {
         return myService.serve();
     }
 }
+
+/**
+ * Explanation -> The controller class remains the same, injecting the service class via constructor injection.
+ * Same like using @Service annotation
+ */
