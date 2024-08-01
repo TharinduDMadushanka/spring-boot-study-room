@@ -14,5 +14,12 @@ public class MyService {
     public String serve(){
         return myComponent.getMessage();
     }
-
 }
+
+/**
+
+ * The service class will use the component to get the message.
+
+ * Explanation -> The service class uses the component class, and the component is injected via constructor injection.
+
+ */

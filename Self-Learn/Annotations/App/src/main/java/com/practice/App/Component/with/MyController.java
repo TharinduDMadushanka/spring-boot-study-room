@@ -19,3 +19,10 @@ public class MyController {
         return myService.serve();
     }
 }
+
+/**
+
+ * The controller class will use the service to get the message.
+
+ * Explanation -> The controller class handles HTTP GET requests and uses the service class to get the message.
+ */
