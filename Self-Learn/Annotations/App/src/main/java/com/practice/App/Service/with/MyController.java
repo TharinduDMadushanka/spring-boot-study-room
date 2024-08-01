@@ -17,6 +17,18 @@ public class MyController {
     @ResponseBody
     public String message(){
         return myService.serve();
+//        return "hello mf";
     }
 }
 
+/**
+
+ *  @Controller -> annotation is used to define a controller
+
+ *  @GetMapping -> maps the HTTP GET requests to the message() method.
+
+ *  @ResponseBody -> * indicates that the return value of the method will be the response body, not a view name.
+                     * without this the method value not showing in the web page
+
+ * Explanation -> This controller handles the root URL ("/service") and returns the result of the serve method from the MyService class.
+ */
