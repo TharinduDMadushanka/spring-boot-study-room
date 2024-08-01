@@ -17,3 +17,13 @@ public class MyService {
         return myRepository.fetch();
     }
 }
+
+/**
+
+ * The service class will use the repository to fetch data.
+
+ * @Autowired -> automatic dependency injection
+
+ * Explanation -> The @Service annotation tells Spring that this class holds the business logic. The repository is injected
+                  into the service using constructor injection.
+ */
