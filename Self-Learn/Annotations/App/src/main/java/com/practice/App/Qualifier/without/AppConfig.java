@@ -20,5 +20,9 @@ public class AppConfig {
     public MyService myService() {
         return new MyService(myComponentA(), myComponentB());
     }
-
 }
+
+/**
+ * Define beans for MyComponentA and MyComponentB using @Bean methods.
+ * Manually inject these beans into the MyService bean.
+ */
