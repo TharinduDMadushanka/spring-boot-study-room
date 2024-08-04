@@ -10,3 +10,7 @@ public class MyComponent {
     }
 
 }
+
+/**
+ * @Component -> marks this class as a Spring component.
+ */

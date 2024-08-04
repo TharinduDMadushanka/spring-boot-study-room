@@ -19,3 +19,8 @@ public class MyController {
         return myService.serve();
     }
 }
+
+/**
+ * @RestController -> mark these classes as Spring-managed beans
+ * @Autowired ->  used to inject MyService into MyController
+ */

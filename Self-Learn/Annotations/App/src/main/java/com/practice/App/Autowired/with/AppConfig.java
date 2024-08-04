@@ -7,3 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "com.practice.App.Autowired.with")
 public class AppConfig {
 }
+
+/**
+ * @ComponentScan -> tells Spring to scan the specified package for components.
+ */

@@ -18,3 +18,8 @@ public class MyService {
     }
 
 }
+
+/**
+ * @Service ->  mark these classes as Spring-managed beans.
+ * @Autowired -> used to inject MyComponent into MyService
+ */
