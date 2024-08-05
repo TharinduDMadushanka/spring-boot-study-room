@@ -18,3 +18,8 @@ public class Main {
 
     }
 }
+
+/**
+ * @Value annotation in Spring is used to inject values into fields from a property file, environment variables, or directly from a value.
+ *  It is typically used to externalize configuration properties.
+ */

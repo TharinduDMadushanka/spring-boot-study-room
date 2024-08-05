@@ -9,3 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:application.properties")
 public class AppConfig {
 }
+
+/**
+ * @PropertySource("classpath:application.properties") -> tells Spring to load the properties file.
+ */

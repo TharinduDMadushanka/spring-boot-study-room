@@ -10,5 +10,9 @@ public class MyComponent {
     public String geValue() {
         return myValue;
     }
-
 }
+
+/**
+ * @Value("${my.value}") -> injects the value of my.value from the application.properties file into the myValue field.
+ * The MyComponent bean is configured to read the property value and print it.
+ */
