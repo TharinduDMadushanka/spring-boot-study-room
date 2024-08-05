@@ -23,3 +23,16 @@ public class PropertyReader {
         return properties.getProperty(key);
     }
 }
+
+/**
+ * PropertyReader class is a utility to manually read properties from a properties file.
+
+ * Constructor: PropertyReader(String fileName)
+     * Loads the properties file specified by fileName.
+     * Uses ClassLoader.getResourceAsStream(fileName) to locate and load the properties file from the classpath.
+     * If the file is not found, it prints an error message.
+     * If the file is found, it loads the properties into a Properties object.
+
+ * Method: getProperty(String key)
+     * Retrieves the value associated with the given key from the loaded properties.
+ */
