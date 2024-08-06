@@ -10,3 +10,6 @@ public class App {
         System.out.println(myService.getData());
     }
 }
+/**
+ * App initializes the Spring context and retrieves MyService to use it.
+ */

@@ -16,3 +16,8 @@ public class AppConfig {
         return new MyService(myRepository());
     }
 }
+
+/**
+ *
+ AppConfig is a configuration class that defines beans.
+ */

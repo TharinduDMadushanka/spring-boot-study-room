@@ -5,3 +5,6 @@ public class MyRepository {
         return "Data from repository";
     }
 }
+/**
+ * MyRepository and MyService are managed by Spring.
+ */
