@@ -7,3 +7,10 @@ public class App {
         System.out.println(myService.getData());
     }
 }
+
+/**
+ * You manually create instances of MyRepository and MyService.
+ * You handle dependency injection yourself.
+ * The application does not use Spring’s dependency injection container, so you lose benefits like automatic management
+   of bean lifecycles and easy configuration.
+ */
