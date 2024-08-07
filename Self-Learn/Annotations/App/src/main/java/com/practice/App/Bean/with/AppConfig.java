@@ -16,3 +16,9 @@ public class AppConfig {
         return new MyService(myRepository());
     }
 }
+
+/**
+ * The AppConfig class is annotated with @Configuration and contains methods annotated with @Bean to define the beans.
+ *  The myRepository method returns an instance of MyRepository.
+ *  The myService method returns an instance of MyService and uses myRepository() to inject the MyRepository dependency.
+ */
