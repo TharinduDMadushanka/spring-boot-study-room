@@ -7,3 +7,8 @@ public class App {
         System.out.println(myService.getData());
     }
 }
+
+/**
+ * You manually create instances of MyRepository and MyService.
+ * You handle dependency injection yourself by passing MyRepository to the constructor of MyService.
+ */
