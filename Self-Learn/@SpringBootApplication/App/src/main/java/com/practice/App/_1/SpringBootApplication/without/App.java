@@ -1,4 +1,4 @@
-package com.practice.App.SpringBootApplication.without;
+package com.practice.App._1.SpringBootApplication.without;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

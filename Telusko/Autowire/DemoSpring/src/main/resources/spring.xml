@@ -1,0 +1,29 @@
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+
+<!--    <bean id="dev" class="lk.practice.Dev" autowire="byName">-->
+<!--&lt;!&ndash;        <property name="com" ref="lap1"/>&ndash;&gt;-->
+<!--    </bean>-->
+
+    <bean id="dev" class="lk.practice.Dev" autowire="byType">
+        <!--        <property name="com" ref="lap1"/>-->
+    </bean>
+
+
+    <bean id="com" class="lk.practice.Laptop" primary="true">
+    </bean>
+
+    <bean id="desk1" class="lk.practice.Desktop">
+    </bean>
+
+</beans>
+
+<!--in here we have to cinfig every time when we need object like this -->
+<!--it's really hard work without spring boot like this-->

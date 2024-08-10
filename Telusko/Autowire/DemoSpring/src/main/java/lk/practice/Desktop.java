@@ -1,12 +1,12 @@
 package lk.practice;
 
-public class Laptop {
+public class Desktop implements Computer{
 
-    public Laptop(){
-        System.out.println("Laptop constructor");
+    public Desktop(){
+        System.out.println("Desktop constructor");
     }
 
     public void compile(){
-        System.out.println("Compile 404 bug.!");
+        System.out.println("Compile desktop.!");
     }
 }
