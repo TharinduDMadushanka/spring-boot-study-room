@@ -1,8 +1,6 @@
 package lk.practice.hellowebapp;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 
 @Path("/hello-world")
 public class HelloResource {
@@ -11,4 +9,13 @@ public class HelloResource {
     public String hello() {
         return "Hello, World!";
     }
+
+    @POST
+    @Path("/{name}")
+    @Produces("text/plain")
+    public String customWelcome(@PathParam("name") String name) {
+        return "Welcome, " + name + "!";
+    }
+
 }
+
