@@ -35,4 +35,10 @@ public class UserController {
         return userService.deleteUser(userDTO);
     }
 
+    //unique method for get user by id
+    @GetMapping("getUserByID/{userID}")
+    public UserDTO getUserByID(@PathVariable String userID){
+        return userService.getUserById(userID);
+    }
+
 }

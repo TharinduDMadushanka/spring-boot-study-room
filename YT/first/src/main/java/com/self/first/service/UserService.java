@@ -47,4 +47,10 @@ public class UserService {
         return true;
     }
 
+    //get user by id by using native query
+    public UserDTO getUserById(String userId){
+        User user = userRepo.getUserByUserID(userId);
+        return modelMapper.map(user, UserDTO.class);
+    }
+
 }
