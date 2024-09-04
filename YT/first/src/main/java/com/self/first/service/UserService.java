@@ -21,16 +21,24 @@ public class UserService {
     @Autowired
     private ModelMapper modelMapper;
 
-
+    // save
     public UserDTO userSave(UserDTO userDTO){
         userRepo.save(modelMapper.map(userDTO, User.class));
 
         return userDTO;
     }
 
+    //fetch
     public List<UserDTO> getAllUsers(){
         List<User> userList = userRepo.findAll();
         return modelMapper.map(userList, new TypeToken<List<UserDTO>>() {}.getType());
+    }
+
+    //update
+    public UserDTO updateUser(UserDTO userDTO){
+        userRepo.save(modelMapper.map(userDTO, User.class));
+
+        return userDTO;
     }
 
 }
