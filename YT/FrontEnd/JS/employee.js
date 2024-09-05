@@ -106,3 +106,17 @@ function getAllEmployees(){
         }
     })
 }
+
+$(document).ready(function (){
+    $(document).on('click','#empTable tr', function (){
+        var col0 = $(this).find('td:eq(0)').text();
+        var col1 = $(this).find('td:eq(1)').text();
+        var col2 = $(this).find('td:eq(2)').text();
+        var col3 = $(this).find('td:eq(3)').text();
+
+        $('#empID').val(col0);
+        $('#name').val(col1);
+        $('#address').val(col2);
+        $('#mobile').val(col3);
+    })
+})
