@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/emp")
 @CrossOrigin
@@ -103,6 +105,28 @@ public class EmployeeController {
 
             return new ResponseEntity(responseDTO, HttpStatus.INTERNAL_SERVER_ERROR);
 
+        }
+    }
+
+    @GetMapping("/getAllEmp")
+    public ResponseEntity getAllEmployee() {
+
+        try {
+
+            List<EmployeeDTO> allEmployees = employeeService.getAllEmployees();
+
+            responseDTO.setCode(VarList.RSP_SUCCESS);
+            responseDTO.setMessage("Success");
+            responseDTO.setContent(allEmployees);
+
+            return new ResponseEntity(responseDTO, HttpStatus.ACCEPTED);
+
+        }catch (Exception e) {
+            responseDTO.setCode(VarList.RSP_FAIL);
+            responseDTO.setMessage(e.getMessage());
+            responseDTO.setContent(null);
+
+            return new ResponseEntity(responseDTO, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
