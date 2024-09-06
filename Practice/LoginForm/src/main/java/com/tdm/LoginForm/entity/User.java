@@ -7,13 +7,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class Login {
+public class User {
 
     @Id
     private String email;
     private String password;
+    private String name;
+    private String mobile;
 
 }
