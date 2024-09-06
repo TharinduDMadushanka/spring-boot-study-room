@@ -28,18 +28,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO loginUser(String email, String password) {
-
-        if (userRepository.existsById(email) && userRepository.existsById(password)) {
-            User existEmail = userRepository.findById(email).orElse(null);
-            User existPassword = userRepository.findById(password).orElse(null);
-
-            if (existEmail != null && existPassword != null) {
-                return modelMapper.map(existEmail, UserDTO.class);
-            } else {
-                return null;
-            }
+        // Assuming the password is stored securely and should be compared as plain text
+        User user = userRepository.findByEmailAndPassword(email, password);
+        if (user != null) {
+            return modelMapper.map(user, UserDTO.class);
         } else {
             return null;
         }
     }
+
 }

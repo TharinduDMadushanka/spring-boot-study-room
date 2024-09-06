@@ -1,6 +1,30 @@
 import { Link } from 'react-router-dom';
+import {useState} from "react";
+import axios from "axios";
+
 
 function Login(){
+
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+
+    // @ts-ignore
+    async function login() {
+        try {
+            const response = await axios.get(`http://localhost:8080/api/user/login/${email}/${password}`);
+            const user = response.data
+
+            if (user) {
+                alert('Welcome!');
+            } else {
+                alert('Wrong details');
+            }
+
+        } catch (error) {
+            console.error('Login error:', error);
+            alert('An error occurred while logging in.');
+        }
+    }
 
     return (
         <div className="container" style={{
@@ -19,16 +43,28 @@ function Login(){
 
                 <div className="col-12">
                     <label htmlFor="inputEmail" className="col-form-label" style={{color: '#fff'}}>Email</label>
-                    <input type="text" id="inputEmail" className="form-control" placeholder="Enter email"/>
+                    <input
+                        type="text"
+                        id="inputEmail"
+                        className="form-control"
+                        value={email}
+                        onChange={(e)=> setEmail(e.target.value)}
+                        placeholder="Enter email"/>
                 </div>
 
                 <div className="col-12">
                     <label htmlFor="inputPassword" className="col-form-label" style={{color: '#fff'}}>Password</label>
-                    <input type="password" id="inputPassword" className="form-control" placeholder="Enter password"/>
+                    <input
+                        type="password"
+                        id="inputPassword"
+                        className="form-control"
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        placeholder="Enter password"/>
                 </div>
 
                 <div className="col-12 text-center mt-5">
-                    <button className="btn btn-primary" style={{width: '100%'}}>Login</button>
+                    <button className="btn btn-primary" onClick={login} style={{width: '100%'}}>Login</button>
                     <hr/>
                     <p className="text-white">
                         Don't you have account ?

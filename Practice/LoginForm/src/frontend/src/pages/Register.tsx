@@ -9,6 +9,7 @@ function Register(){
     const [name, setName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
+    // @ts-ignore
     async function register(){
         const user ={email,mobile,name,password}
 

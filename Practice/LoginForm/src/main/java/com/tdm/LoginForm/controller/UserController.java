@@ -20,7 +20,6 @@ public class UserController {
 
     @GetMapping("/login/{email}/{password}")
     public UserDTO login(@PathVariable String email, @PathVariable String password) {
-//        System.out.println(email +" "+ password);
         return userService.loginUser(email, password);
     }
 }
