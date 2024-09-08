@@ -19,7 +19,7 @@ function Dashboard(){
             margin: 'auto',
             marginTop: '100px'
         }}>
-            <h1 style={{color: '#fff'}}>Welcome to the Dashboard</h1>
+            <h1 style={{color: '#fff'}}>Welcome to the Dashboard.!</h1>
             <button className="btn btn-danger" onClick={backToLogin}  style={{
                 width: '100px',
                 marginTop: '10px',  // Optional: Adjust space between title and button
