@@ -34,6 +34,6 @@ public class Order {
             joinColumns = @JoinColumn(name = "orderId"),
             inverseJoinColumns = @JoinColumn(name = "productId")
     )
-    private List<Product> products;
+    private List<Product> orderedProducts;
 
 }
