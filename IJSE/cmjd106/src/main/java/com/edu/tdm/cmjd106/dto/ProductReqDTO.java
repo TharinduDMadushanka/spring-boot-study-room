@@ -13,3 +13,13 @@ public class ProductReqDTO {
     private Long categoryId;
 
 }
+
+/**
+ * Api request
+ {
+     "name": "Radio",
+     "price": 249.99,
+     "description": "An  high-quality Radio.",
+     "categoryId": 1
+ }
+ */
