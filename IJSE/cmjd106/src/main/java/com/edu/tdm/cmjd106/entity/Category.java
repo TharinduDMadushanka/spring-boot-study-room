@@ -22,3 +22,10 @@ public class Category {
     private List<Product> products;
 
 }
+
+/**
+ * API request
+  {
+    "name": "Electronics"
+  }
+ */
