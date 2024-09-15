@@ -35,5 +35,14 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "productId")
     )
     private List<Product> orderedProducts;
-
 }
+
+/**
+ * Order is an entity that represents the order table in the database.
+ * It has fields like id, orderDateTime, totalPrice, and orderedProducts.
+ * The @PrePersist annotation ensures that the order's orderDateTime is set
+   to the current date and time before the entity is persisted in the database.
+ * The @ManyToMany relationship maps the association between the Order and Product entities.
+ * Each order can contain multiple products, and each product can belong to multiple orders.
+ * The relationship is mapped by the order_product table.
+ */
