@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public interface CategoryService {
 
-    List<Category> findAllCategories();
+    List<Category> getAllCategories();
     Category createCategory(Category category);
 
 }
