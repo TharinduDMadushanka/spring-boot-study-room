@@ -1,7 +1,7 @@
 
 interface CategoryType{
-    title: string,
-    description: string
+    id: number;
+    name:string;
 }
 
 export default CategoryType
