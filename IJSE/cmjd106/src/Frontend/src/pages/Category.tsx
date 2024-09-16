@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CategoryType from "../types/CategoryType.tsx";
 import axios from "axios";
 
@@ -12,6 +12,10 @@ function Category() {
         const response = await axios.get("http://localhost:8080/categories");
         setCategories(response.data);
     }
+
+    useEffect(function (){
+        loadCategories();//function that will be triggered at the side effect
+    }, []) //dependency array, if it is empty, it will be triggered only once
 
     function handleCategoryName(event: any) {
         setCategoryName(event.target.value);
