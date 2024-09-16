@@ -1,11 +1,18 @@
 import {useEffect, useState} from "react";
 import CategoryType from "../types/CategoryType.tsx";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function Category() {
 
     const [categories, setCategories] = useState<CategoryType[]>([]);
     const [categoryName, setCategoryName] = useState<string>("");
+
+    const navigate = useNavigate();
+
+    function homePage(){
+        navigate("/")
+    }
 
 
     async function loadCategories() {
@@ -88,6 +95,11 @@ function Category() {
                 </form>
             </div>
 
+            <nav aria-label="Page navigation example">
+                <ul className="pagination">
+                    <li className="page-item"><a className="page-link" href="#" onClick={homePage}>Home</a></li>
+                </ul>
+            </nav>
 
         </div>
 
