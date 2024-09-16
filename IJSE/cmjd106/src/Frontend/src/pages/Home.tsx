@@ -16,6 +16,10 @@ function Home() {
         navigate("/order")
     }
 
+    function navCreateOrder(){
+        navigate("/order/create")
+    }
+
     return (
         <div>
             <div className="container p-5 mt-5">
@@ -34,7 +38,7 @@ function Home() {
                     <li className="page-item"><a className="page-link" href="#" onClick={navCategory}>Category</a></li>
                     <li className="page-item"><a className="page-link" href="#" onClick={navProduct}>Product</a></li>
                     <li className="page-item"><a className="page-link" href="#" onClick={navOrder}>Order</a></li>
-                    <li className="page-item"><a className="page-link" href="#">3</a></li>
+                    <li className="page-item"><a className="page-link" href="#" onClick={navCreateOrder}>Create Order</a></li>
                     <li className="page-item"><a className="page-link" href="#">Next</a></li>
                 </ul>
             </nav>
