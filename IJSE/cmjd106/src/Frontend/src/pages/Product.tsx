@@ -1,24 +1,23 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import ProductType from "../types/ProductType.tsx";
 import axios from "axios";
 import CategoryType from "../types/CategoryType.tsx";
 
 function Product() {
-
     const [product, setProduct] = useState<ProductType[]>([]);
 
-    //state required to create a product
+    // state required to create a product
     const [productName, setProductName] = useState<string>("");
     const [price, setPrice] = useState<number>(0.0);
     const [description, setDescription] = useState<string>("");
     const [categoryId, setCategoryId] = useState<number>();
-    const [categories, setCategories] = useState<CategoryType[]>([])
+    const [categories, setCategories] = useState<CategoryType[]>([]);
 
-    const [productEditing, setProductEditing] = useState<ProductType | null>(null)
+    const [productEditing, setProductEditing] = useState<ProductType | null>(null);
 
-// load products
+    // load products
     async function loadProduct() {
-        const response = await axios.get("http://localhost:8080/products")
+        const response = await axios.get("http://localhost:8080/products");
         setProduct(response.data);
     }
 
@@ -31,43 +30,43 @@ function Product() {
     useEffect(function () {
         loadProduct();
         loadCategories();
-    }, [])
+    }, []);
 
     function handleProductName(event: any) {
-        setProductName(event.target.value)
+        setProductName(event.target.value);
     }
 
     function handlePrice(event: any) {
-        setPrice(event.target.valueOf)
+        setPrice(Number(event.target.value));
     }
 
     function handleDescription(event: any) {
-        setDescription(event.target.value)
+        setDescription(event.target.value);
     }
 
     function handleCategoryId(event: any) {
-        setCategoryId(event.target.valueOf)
+        setCategoryId(Number(event.target.value));
     }
 
-    async function handleSubmit() {
+    async function handleSubmit(event: React.FormEvent) {
+        event.preventDefault(); // Prevent the form from reloading the page
+
         const data = {
             name: productName,
             price: price,
             description: description,
-            categoryId: categoryId
-        }
+            categoryId: categoryId,
+        };
 
         try {
-
-            await axios.post("http://localhost:8080/products", data)
+            await axios.post("http://localhost:8080/products", data);
             loadProduct();
             setProductName("");
             setPrice(0);
             setDescription("");
-            setCategoryId(0)
-
+            setCategoryId(0);
         } catch (error: any) {
-            console.log(error)
+            console.log(error);
         }
     }
 
@@ -77,48 +76,42 @@ function Product() {
         setProductName(product.name);
         setPrice(product.price);
         setDescription(product.description);
-        setCategoryId(product.category?.id)
+        setCategoryId(product.category?.id);
     }
 
-    //update product
-    async function updateProduct() {
+    // update product
+    async function updateProduct(event: React.FormEvent) {
+        event.preventDefault(); // Prevent the form from reloading the page
+
         const data = {
             name: productName,
             price: price,
             description: description,
-            categoryId: categoryId
-        }
+            categoryId: categoryId,
+        };
 
         try {
-
-            await axios.post(`http://localhost:8080/products/${productEditing?.id}`, data)
-            setProductEditing(null)
-
+            await axios.put(`http://localhost:8080/products/${productEditing?.id}`, data); // Use PUT for update
+            setProductEditing(null);
             loadProduct();
             setProductName("");
             setPrice(0);
             setDescription("");
-            setCategoryId(0)
-
+            setCategoryId(0);
         } catch (error: any) {
-            console.log(error)
+            console.log(error);
         }
     }
 
-    //delete product
+    // delete product
     async function deleteProduct(productId: number) {
-
         try {
-
-            await axios.delete(`http://localhost:8080/products/${productId}`)
-            loadProduct()
-
+            await axios.delete(`http://localhost:8080/products/${productId}`);
+            loadProduct();
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-
     }
-
 
     return (
         <div className="container py-5">
@@ -127,16 +120,16 @@ function Product() {
             <table className="table table-striped table-bordered text-left">
                 <thead className="thead-light">
                 <tr>
-                    <th style={{width: '80px'}}>Product ID</th>
-                    <th style={{width: '200px'}}>Product Name</th>
-                    <th style={{width: '200px'}}>Product Price</th>
-                    <th style={{width: '200px'}}>Actions</th>
+                    <th style={{ width: "80px" }}>Product ID</th>
+                    <th style={{ width: "200px" }}>Product Name</th>
+                    <th style={{ width: "200px" }}>Product Price</th>
+                    <th style={{ width: "200px" }}>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 {product.map(function (products) {
                     return (
-                        <tr>
+                        <tr key={products.id}>
                             <td>{products.id}</td>
                             <td>{products.name}</td>
                             <td>{products.price}</td>
@@ -161,8 +154,11 @@ function Product() {
                 </tbody>
             </table>
 
-            <div className="border border-light py-3 px-4 rounded mb-4" style={{maxWidth: '350px'}}>
-                <form>
+            <div
+                className="border border-light py-3 px-4 rounded mb-4"
+                style={{ maxWidth: "350px" }}
+            >
+                <form onSubmit={productEditing ? updateProduct : handleSubmit}>
                     <div className="mb-3">
                         <label className="form-label">Product Name</label>
                         <input
@@ -177,7 +173,7 @@ function Product() {
                     <div className="mb-3">
                         <label className="form-label">Price</label>
                         <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             value={price}
                             onChange={handlePrice}
@@ -206,42 +202,22 @@ function Product() {
                         >
                             <option value="">Please select category</option>
                             {categories.map(function (category) {
-                                return <option value={category.id}>{category.name}</option>;
+                                return (
+                                    <option key={category.id} value={category.id}>
+                                        {category.name}
+                                    </option>
+                                );
                             })}
                         </select>
                     </div>
 
-                    <button
-                        type="button"
-                        className="btn btn-dark btn-sm w-100 mb-2"
-                        onClick={handleSubmit}
-                    >
-                        Create Product
+                    <button type="submit" className="btn btn-dark btn-sm w-100 mb-2">
+                        {productEditing ? "Update Product" : "Create Product"}
                     </button>
-
-                    {productEditing ? (
-                        <button
-                            type="button"
-                            className="btn btn-dark btn-sm w-100 mb-2"
-                            onClick={updateProduct}
-                        >
-                            Update Product
-                        </button>
-                    ) : (
-                        <button
-                            type="button"
-                            className="btn btn-dark btn-sm w-100 mb-2"
-                            onClick={handleSubmit}
-                        >
-                            Create Product
-                        </button>
-                    )}
-
                 </form>
             </div>
         </div>
     );
-
 }
 
-export default Product
+export default Product;

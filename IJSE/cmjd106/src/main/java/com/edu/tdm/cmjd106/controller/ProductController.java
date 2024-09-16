@@ -73,7 +73,7 @@ public class ProductController {
     public ResponseEntity<String> deleteProduct(@PathVariable Long productId) {
         productService.deleteProduct(productId);
 
-        return ResponseEntity.status(200).body("Product deleted successfully");
+        return ResponseEntity.status(200).body("Product Deleted");
     }
 
 }

@@ -28,7 +28,7 @@ public class Product {
     private Category category;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "orderedProducts")
+    @ManyToMany(mappedBy = "orderedProducts", cascade = CascadeType.ALL)
     private List<Order> orders;
 
 }
