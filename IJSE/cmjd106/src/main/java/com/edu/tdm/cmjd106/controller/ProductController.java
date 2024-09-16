@@ -58,9 +58,22 @@ public class ProductController {
         Category category = categoryService.getCategoryById(productReqDTO.getCategoryId());
         product.setCategory(category);
 
-        Product updatedProduct = productService.updateProduct(productId, product);
+//        Product updatedProduct = productService.updateProduct(productId, product);
 
-        return ResponseEntity.status(201).body(updatedProduct);
+        try {
+            productService.updateProduct(productId, product);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.status(201).body(product);
+    }
+
+    @DeleteMapping("/products/{productId}")
+    public ResponseEntity<String> deleteProduct(@PathVariable Long productId) {
+        productService.deleteProduct(productId);
+
+        return ResponseEntity.status(200).body("Product deleted successfully");
     }
 
 }

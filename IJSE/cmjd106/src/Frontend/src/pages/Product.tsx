@@ -14,6 +14,8 @@ function Product() {
     const [categoryId, setCategoryId] = useState<number>();
     const [categories, setCategories] = useState<CategoryType[]>([])
 
+    const [productEditing, setProductEditing] = useState<ProductType | null>(null)
+
 // load products
     async function loadProduct() {
         const response = await axios.get("http://localhost:8080/products")
@@ -31,23 +33,23 @@ function Product() {
         loadCategories();
     }, [])
 
-    function handleProductName(event: any){
+    function handleProductName(event: any) {
         setProductName(event.target.value)
     }
 
-    function handlePrice(event: any){
+    function handlePrice(event: any) {
         setPrice(event.target.valueOf)
     }
 
-    function handleDescription(event: any){
+    function handleDescription(event: any) {
         setDescription(event.target.value)
     }
 
-    function handleCategoryId(event: any){
+    function handleCategoryId(event: any) {
         setCategoryId(event.target.valueOf)
     }
 
-    async function handleSubmit(){
+    async function handleSubmit() {
         const data = {
             name: productName,
             price: price,
@@ -57,18 +59,66 @@ function Product() {
 
         try {
 
-            await axios.post("http://localhost:8080/products",data)
+            await axios.post("http://localhost:8080/products", data)
             loadProduct();
             setProductName("");
             setPrice(0);
             setDescription("");
             setCategoryId(0)
 
-        }catch (error: any){
+        } catch (error: any) {
+            console.log(error)
+        }
+    }
+
+    // edit Product
+    function editProduct(product: ProductType) {
+        setProductEditing(product);
+        setProductName(product.name);
+        setPrice(product.price);
+        setDescription(product.description);
+        setCategoryId(product.category?.id)
+    }
+
+    //update product
+    async function updateProduct() {
+        const data = {
+            name: productName,
+            price: price,
+            description: description,
+            categoryId: categoryId
+        }
+
+        try {
+
+            await axios.post(`http://localhost:8080/products/${productEditing?.id}`, data)
+            setProductEditing(null)
+
+            loadProduct();
+            setProductName("");
+            setPrice(0);
+            setDescription("");
+            setCategoryId(0)
+
+        } catch (error: any) {
+            console.log(error)
+        }
+    }
+
+    //delete product
+    async function deleteProduct(productId: number) {
+
+        try {
+
+            await axios.delete(`http://localhost:8080/products/${productId}`)
+            loadProduct()
+
+        } catch (error) {
             console.log(error)
         }
 
     }
+
 
     return (
         <div className="container py-5">
@@ -90,21 +140,21 @@ function Product() {
                             <td>{products.id}</td>
                             <td>{products.name}</td>
                             <td>{products.price}</td>
-                            {/*<td>*/}
-                            {/*    <button*/}
-                            {/*        onClick={() => editProduct(product)}*/}
-                            {/*        className="btn btn-outline-secondary btn-sm me-2"*/}
-                            {/*    >*/}
-                            {/*        Edit*/}
-                            {/*    </button>*/}
+                            <td>
+                                <button
+                                    onClick={() => editProduct(products)}
+                                    className="btn btn-outline-secondary btn-sm me-2"
+                                >
+                                    Edit
+                                </button>
 
-                            {/*    <button*/}
-                            {/*        onClick={() => deleteProduct(product.id)}*/}
-                            {/*        className="btn btn-danger btn-sm"*/}
-                            {/*    >*/}
-                            {/*        Delete*/}
-                            {/*    </button>*/}
-                            {/*</td>*/}
+                                <button
+                                    onClick={() => deleteProduct(products.id)}
+                                    className="btn btn-danger btn-sm"
+                                >
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
                     );
                 })}
@@ -161,6 +211,23 @@ function Product() {
                         </select>
                     </div>
 
+                    <button
+                        type="button"
+                        className="btn btn-dark btn-sm w-100 mb-2"
+                        onClick={handleSubmit}
+                    >
+                        Create Product
+                    </button>
+
+                    {productEditing ? (
+                        <button
+                            type="button"
+                            className="btn btn-dark btn-sm w-100 mb-2"
+                            onClick={updateProduct}
+                        >
+                            Update Product
+                        </button>
+                    ) : (
                         <button
                             type="button"
                             className="btn btn-dark btn-sm w-100 mb-2"
@@ -168,6 +235,7 @@ function Product() {
                         >
                             Create Product
                         </button>
+                    )}
 
                 </form>
             </div>
