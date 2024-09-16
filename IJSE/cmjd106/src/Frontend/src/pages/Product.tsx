@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import ProductType from "../types/ProductType.tsx";
 import axios from "axios";
 import CategoryType from "../types/CategoryType.tsx";
+import {useNavigate} from "react-router-dom";
 
 function Product() {
+
+    const navigate = useNavigate();
+
     const [product, setProduct] = useState<ProductType[]>([]);
 
     // state required to create a product
@@ -14,6 +18,10 @@ function Product() {
     const [categories, setCategories] = useState<CategoryType[]>([]);
 
     const [productEditing, setProductEditing] = useState<ProductType | null>(null);
+
+    function homePage(){
+        navigate("/")
+    }
 
     // load products
     async function loadProduct() {
@@ -120,10 +128,10 @@ function Product() {
             <table className="table table-striped table-bordered text-left">
                 <thead className="thead-light">
                 <tr>
-                    <th style={{ width: "80px" }}>Product ID</th>
-                    <th style={{ width: "200px" }}>Product Name</th>
-                    <th style={{ width: "200px" }}>Product Price</th>
-                    <th style={{ width: "200px" }}>Actions</th>
+                    <th style={{width: "80px"}}>Product ID</th>
+                    <th style={{width: "200px"}}>Product Name</th>
+                    <th style={{width: "200px"}}>Product Price</th>
+                    <th style={{width: "200px"}}>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -156,7 +164,7 @@ function Product() {
 
             <div
                 className="border border-light py-3 px-4 rounded mb-4"
-                style={{ maxWidth: "350px" }}
+                style={{maxWidth: "350px"}}
             >
                 <form onSubmit={productEditing ? updateProduct : handleSubmit}>
                     <div className="mb-3">
@@ -216,6 +224,12 @@ function Product() {
                     </button>
                 </form>
             </div>
+
+            <nav aria-label="Page navigation example">
+                <ul className="pagination">
+                    <li className="page-item"><a className="page-link" href="#" onClick={homePage}>Home</a></li>
+                </ul>
+            </nav>
         </div>
     );
 }
