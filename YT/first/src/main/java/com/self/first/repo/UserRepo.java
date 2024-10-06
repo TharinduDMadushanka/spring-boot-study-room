@@ -10,4 +10,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Query(value = "SELECT * FROM user WHERE id = ?", nativeQuery = true)
     User getUserByUserID(String userID);
 
+    // if use UPDATE query use @Modifying / @Query
+
 }

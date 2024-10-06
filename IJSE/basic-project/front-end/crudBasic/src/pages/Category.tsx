@@ -24,6 +24,7 @@ function Category() {
     }
 
     //save
+    // @ts-ignore
     async function saveCategory() {
         const category = {id, name};
         try {

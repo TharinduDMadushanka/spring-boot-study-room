@@ -1,15 +1,26 @@
-package lk.ijse.shop.dto;
+package lk.ijse.shop.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDate; // Change to LocalDate
 
+@Entity
 @Data
-public class CustomerDto {
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "customer")
+public class Customer {
+
+    @Id
     private String id;
     private String title;
     private String name;
-    private LocalDate dob; // Use LocalDate
+    private LocalDate dob; // Changed from Date to LocalDate
     private double salary;
     private String address;
     private String city;
