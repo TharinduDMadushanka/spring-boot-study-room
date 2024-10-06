@@ -10,6 +10,10 @@ const Home = () => {
         navigate('/customer');
     }
 
+    function navItem(){
+        navigate('/item');
+    }
+
   return (
     <div>
         <div className="container p-5 mt-5">
@@ -26,7 +30,7 @@ const Home = () => {
             <nav aria-label="Page navigation example">
                 <ul className="pagination">
                     <li className="page-item"><a className="page-link" href="#" onClick={navCustomer}>Customer</a></li>
-                    <li className="page-item"><a className="page-link" href="#" >Product</a></li>
+                    <li className="page-item"><a className="page-link" href="#" onClick={navItem} >Item</a></li>
                     <li className="page-item"><a className="page-link" href="#" >Order</a></li>
                     
                 </ul>
