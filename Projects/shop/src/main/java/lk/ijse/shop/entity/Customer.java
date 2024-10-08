@@ -26,4 +26,5 @@ public class Customer {
     private String city;
     private String province;
     private String postal;
+
 }
