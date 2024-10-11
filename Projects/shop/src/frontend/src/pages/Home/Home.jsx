@@ -20,7 +20,7 @@ const Home = () => {
                 <div className="card text-center">
 
                     <div className="card-body">
-                        <h1 className="card-title text">Welcome to supermarket project!</h1>
+                        <h1 className="card-title text">Welcome to shop crud practice project!</h1>
                         <a href="#" className="btn btn-primary  mt-5" >Enter</a>
                     </div>
 
